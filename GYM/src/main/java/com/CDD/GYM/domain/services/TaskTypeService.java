@@ -18,4 +18,11 @@ public class TaskTypeService {
     public TaskTypeDTO createTaskType(TaskTypeDTO taskTypeDTO){
         return this.taskTypeRepository.createTaskType(taskTypeDTO);
     }
+
+    // listar Todas Las Tareas
+    public  List<TaskTypeDTO> getTaskType() {
+
+        return TaskTypeRepository.getTaskType();
+
+    }
 }

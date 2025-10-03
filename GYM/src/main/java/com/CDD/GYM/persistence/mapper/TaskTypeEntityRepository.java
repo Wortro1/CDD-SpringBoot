@@ -22,4 +22,12 @@ public class TaskTypeEntityRepository implements TaskTypeRepository {
         TaskTypeEntity entity = taskTypeMapper.toTaskTypeEntity(taskTypeDTO);
         return taskTypeMapper.toTaskTypeDTO(crudTaskType.save(entity));
     }
+
+    @Override
+    public List<TaskTypeDTO> getTaskType() {
+
+        return this.TaskTypeMapper.toTaskTypeDTO(this.crudTaskType.findAll());
+
+    }
+
 }
