@@ -6,10 +6,6 @@ import java.util.List;
 
 public interface TaskTypeRepository {
 
-    public List<TaskTypeDTO> getTaksType();
-
-    public TaskTypeDTO getTaskTypeById(Integer idType);
-
-    public TaskTypeDTO createTaskType(TaskTypeDTO taskTypeDTO);
+ TaskTypeDTO createTaskType(TaskTypeDTO taskTypeDTO);
 
 }
