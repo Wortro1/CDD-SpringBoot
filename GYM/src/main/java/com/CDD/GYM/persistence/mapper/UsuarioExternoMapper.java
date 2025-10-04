@@ -11,7 +11,6 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface UsuarioExternoMapper {
 
-
     @Mapping(target = "fechaDeNacimiento", source = "fechaNacimiento")
     UsuarioExternoDTO toUsuarioExternoDTO(UsuarioExternoEntity entity);
 
