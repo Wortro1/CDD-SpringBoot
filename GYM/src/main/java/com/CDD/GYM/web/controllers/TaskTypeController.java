@@ -22,11 +22,4 @@ public class TaskTypeController {
     public TaskTypeDTO createTaskType(@RequestBody TaskTypeDTO taskTypeDTO){
         return taskTypeService.createTaskType(taskTypeDTO);
     }
-    //http://localhost:8080/gym/api/task_type/getTask_type
-    @GetMapping("/getTask_type")
-    public List<TaskTypeDTO> getTaskType() {
-
-        return this.TaskTypeDTO.getTaskType();
-
-    }
 }
