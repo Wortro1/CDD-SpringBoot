@@ -25,7 +25,7 @@ public class UsuarioExternoController {
         return usuarioService.createUsuarioExterno(usuarioDTO);
     }
 
-    // http://localhost:8080/api/usuarios-externos/{id}
+    // http://localhost:8080/gym/api/usuarios-externos/{id}
     @PutMapping("/{id}")
     public UsuarioExternoDTO updateUsuarioExterno(
             @PathVariable int id,
@@ -35,7 +35,7 @@ public class UsuarioExternoController {
     }
 
 
-    //DELETE http://localhost:8080/api/usuarios-externos/{id}
+    //DELETE http://localhost:8080/gym/api/usuarios-externos/{id}
     @DeleteMapping("/{id}")
     public void deleteUsuarioExterno(@PathVariable int id) {
         usuarioService.deleteUsuarioExterno(id);
