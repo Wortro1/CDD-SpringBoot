@@ -13,11 +13,11 @@ import java.util.List;
 public interface TaskTypeMapper {
 
     @Mapping(target = "task_description", source = "taskDescription")
+    @Mapping(target ="id_task",source = "idType")
     TaskTypeDTO toTaskTypeDTO(TaskTypeEntity entity);
 
     List<TaskTypeDTO> toTaskTypeDTOs(Iterable <TaskTypeEntity> entities);
 
     @InheritInverseConfiguration
-    @Mapping(target = "taskDescription", source = "task_description")
     TaskTypeEntity toTaskTypeEntity(TaskTypeDTO dto);
 }
