@@ -8,4 +8,12 @@ public interface TaskTypeRepository {
 
  TaskTypeDTO createTaskType(TaskTypeDTO taskTypeDTO);
 
+ TaskTypeDTO lookTaskById(int id );
+
+ TaskTypeDTO UpdateTask(Integer id,TaskTypeDTO taskTypeDTO);
+
+ List<TaskTypeDTO> lookAllTask();
+
+ void deleteTask(Integer id);
+
 }
