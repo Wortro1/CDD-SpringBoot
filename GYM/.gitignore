@@ -1,0 +1,10 @@
+# IntelliJ / IDE config
+.idea/
+
+# Maven build folder
+target/
+
+# Default ignored files
+shelf/
+.idea/workspace.xml
+mavenHomeManager.xml
