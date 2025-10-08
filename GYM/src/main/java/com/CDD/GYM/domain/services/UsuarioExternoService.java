@@ -13,8 +13,6 @@ public class UsuarioExternoService {
         this.usuarioExternoRepository = usuarioExternoRepository;
     }
 
-
-
     // Crear usuario externo
     public UsuarioExternoDTO createUsuarioExterno(UsuarioExternoDTO usuarioExternoDTO) {
         return usuarioExternoRepository.createUsuarioExterno(usuarioExternoDTO);
