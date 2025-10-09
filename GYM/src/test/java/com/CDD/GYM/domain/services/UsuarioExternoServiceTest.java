@@ -70,4 +70,45 @@ public class UsuarioExternoServiceTest {
         usuarioExternoService.deleteUsuarioExterno(TEST_ID);
         verify(usuarioExternoRepository, times(1)).deleteUsuarioExterno(TEST_ID);
     }
+    // Test 1: Caso Exitoso (Usuario Encontrado)
+    @Test
+    void findUserById_ShouldReturnUserWhenFound() {
+        // ARRANGE
+        // Definimos el comportamiento del mock: Cuando se llama al repositorio con ID 1, devuelve el testDTO
+        when(usuarioExternoRepository.getUsuarioExternoById(TEST_ID)).thenReturn(testDTO);
+
+        // ACT
+        UsuarioExternoDTO result = usuarioExternoService.findUserById(TEST_ID);
+
+        // ASSERT
+        assertNotNull(result, "El resultado no debe ser null.");
+        assertEquals(testDTO.nombre(), result.nombre(), "El nombre del usuario debe coincidir.");
+        // Verificamos que el repositorio fue llamado una vez con el ID correcto.
+        verify(usuarioExternoRepository, times(1)).getUsuarioExternoById(TEST_ID);
+    }
+
+    // Test 2: Caso Fallido (Usuario NO Encontrado -> Debe lanzar excepción)
+    @Test
+    void findUserById_ShouldThrowRuntimeExceptionWhenNotFound() {
+        // ARRANGE
+        Integer nonExistentId = 99;
+
+        // Definimos el comportamiento del mock: Cuando se llama al repositorio con ID 99, devuelve null.
+        when(usuarioExternoRepository.getUsuarioExternoById(nonExistentId)).thenReturn(null);
+
+        // ACT & ASSERT
+        // Verificamos que al ejecutar el método, se lanza la RuntimeException que programamos en el servicio.
+        RuntimeException exception = assertThrows(
+                RuntimeException.class,
+                () -> usuarioExternoService.findUserById(nonExistentId),
+                "Se esperaba una RuntimeException cuando el usuario no se encuentra."
+        );
+
+        // Verificamos el mensaje de la excepción.
+        assertTrue(exception.getMessage().contains("Usuario externo no encontrado con ID: " + nonExistentId));
+
+        // Verificamos que el repositorio fue llamado.
+        verify(usuarioExternoRepository, times(1)).getUsuarioExternoById(nonExistentId);
+    }
 }
+

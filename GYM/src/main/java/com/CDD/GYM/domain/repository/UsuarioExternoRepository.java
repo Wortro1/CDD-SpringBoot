@@ -12,4 +12,6 @@ public interface UsuarioExternoRepository {
 
     // Eliminar usuario por ID
     void deleteUsuarioExterno(Integer id);
+
+    UsuarioExternoDTO getUsuarioExternoById(Integer id);
 }

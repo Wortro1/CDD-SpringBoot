@@ -1,8 +1,12 @@
 package com.CDD.GYM.web.controllers;
 
 import com.CDD.GYM.domain.dto.AdminDTO;
+import com.CDD.GYM.domain.dto.UsuarioExternoDTO;
 import com.CDD.GYM.domain.services.AdminService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -38,7 +42,18 @@ public class AdminController {
         return adminService.updateAdmin(id, adminDTO);
     }
 
+    //Endpoint para consultar todos los usuarios del sistema.
+    // URI: GET /gym/api/administrador/usuarios/todos
 
+    @GetMapping("/usuarios/todos")
+    public ResponseEntity<List<UsuarioExternoDTO>> getAllUsers() {
+
+        // Llama al metodo de servicio
+        List<UsuarioExternoDTO> users = adminService.findAllUsers();
+
+        // Devuelve la respuesta 200 OK con la lista de DTOs.
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
     //DELETE http://localhost:8080/gym/api/administrador/{id}
     @DeleteMapping("/{id}")
     public void deleteAdmin(@PathVariable int id) {

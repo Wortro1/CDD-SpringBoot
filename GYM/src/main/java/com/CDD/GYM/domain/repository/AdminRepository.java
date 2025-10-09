@@ -1,6 +1,8 @@
 package com.CDD.GYM.domain.repository;
 
 import com.CDD.GYM.domain.dto.AdminDTO;
+import com.CDD.GYM.domain.dto.UsuarioExternoDTO;
+
 
 import java.util.List;
 
@@ -17,4 +19,7 @@ public interface AdminRepository {
 
     // Eliminar Admin por ID
     void deleteAdmin(Integer id);
+
+    List<UsuarioExternoDTO> getAllUsers();
+
 }

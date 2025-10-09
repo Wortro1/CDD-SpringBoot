@@ -4,6 +4,8 @@ package com.CDD.GYM.web.controllers;
 
 import com.CDD.GYM.domain.dto.UsuarioExternoDTO;
 import com.CDD.GYM.domain.services.UsuarioExternoService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,6 +36,15 @@ public class UsuarioExternoController {
         return usuarioService.updateUsuarioExterno(id, usuarioDTO);
     }
 
+    // GET http://localhost:8080/gym/api/usuarios-externos/{id}
+    @GetMapping("/{id}")
+    public ResponseEntity<UsuarioExternoDTO> getUsuarioExternoById(@PathVariable Integer id) {
+
+        UsuarioExternoDTO usuario = usuarioService.findUserById(id);
+
+        // Retorna 200 OK con el DTO (el manejo del error 404 está en el servicio)
+        return new ResponseEntity<>(usuario, HttpStatus.OK);
+    }
 
     //DELETE http://localhost:8080/gym/api/usuarios-externos/{id}
     @DeleteMapping("/{id}")
