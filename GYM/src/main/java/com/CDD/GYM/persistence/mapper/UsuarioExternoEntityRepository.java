@@ -39,4 +39,16 @@ public class UsuarioExternoEntityRepository implements UsuarioExternoRepository 
     public void deleteUsuarioExterno(Integer id) {
         crudUsuarioExterno.deleteById(id);
     }
+
+    @Override
+    public UsuarioExternoDTO getUsuarioExternoById(Integer id) {
+
+        //    Esto devuelve un Optional<UsuarioExternoEntity>.
+        return crudUsuarioExterno.findById(id)
+                // 2. Si el Optional contiene un resultado (.map), usa el mapper para convertir
+                //    la Entity al DTO.
+                .map(entity -> usuarioExternoMapper.toUsuarioExternoDTO(entity))
+                // 3. Si no se encuentra el usuario (Optional está vacío), retorna null.
+                .orElse(null);
+    }
 }

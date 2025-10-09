@@ -1,6 +1,7 @@
 package com.CDD.GYM.domain.services;
 
 import com.CDD.GYM.domain.dto.AdminDTO;
+import com.CDD.GYM.domain.dto.UsuarioExternoDTO;
 import com.CDD.GYM.domain.repository.AdminRepository;
 import org.springframework.stereotype.Service;
 
@@ -36,4 +37,15 @@ public class AdminService {
     public void deleteAdmin(int id) {
         adminRepository.deleteAdmin(id);
     }
+
+    //Obtiene la lista completa de todos los usuarios del sistema
+
+    public List<UsuarioExternoDTO> findAllUsers() {
+
+        // Llama al repositorio para obtener la lista de DTOs mapeados.
+        return adminRepository.getAllUsers();
+    }
 }
+
+
+

@@ -27,4 +27,17 @@ public class UsuarioExternoService {
     public void deleteUsuarioExterno(int id) {
         usuarioExternoRepository.deleteUsuarioExterno(id);
     }
+
+
+    public UsuarioExternoDTO findUserById(Integer id) {
+        UsuarioExternoDTO usuario = usuarioExternoRepository.getUsuarioExternoById(id);
+
+        // 2. Lógica de Negocio: Si el usuario es null, lanzamos una excepción (error 404).
+        if (usuario == null) {
+            throw new RuntimeException("Usuario externo no encontrado con ID: " + id);
+        }
+
+        return usuario;
+    }
 }
+
