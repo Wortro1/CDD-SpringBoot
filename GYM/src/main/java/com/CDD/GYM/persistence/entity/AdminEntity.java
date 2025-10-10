@@ -18,4 +18,6 @@ public class AdminEntity extends PersonaEntity {
     @ManyToOne
     @JoinColumn(name = "id_task_type")
     private TaskTypeEntity taskType;
+
+
 }
