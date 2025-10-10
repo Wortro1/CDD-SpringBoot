@@ -29,8 +29,7 @@ public class AdminService {
 
 
     // Actualizar Administrador
-    public AdminDTO updateAdmin(int id, AdminDTO adminDTO) {
-        return adminRepository.updateAdmin(id, adminDTO);
+    public AdminDTO updateAdmin(int id, AdminDTO adminDTO) {return adminRepository.updateAdmin(id, adminDTO);
     }
 
     // Eliminar Administrador
