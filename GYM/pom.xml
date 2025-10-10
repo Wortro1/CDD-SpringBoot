@@ -67,6 +67,13 @@
 			<version>${org.mapstruct.version}</version>
 		</dependency>
 
+		<!-- 5. SWAGGER -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
 		<!-- 5. TESTING -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
