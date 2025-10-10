@@ -1,6 +1,7 @@
 package com.CDD.GYM.persistence.mapper;
 
 import com.CDD.GYM.domain.dto.AdminDTO;
+import com.CDD.GYM.domain.dto.UsuarioExternoDTO;
 import com.CDD.GYM.domain.repository.AdminRepository;
 import com.CDD.GYM.persistence.crud.CrudAdmin;
 import com.CDD.GYM.persistence.crud.CrudTaskType;
@@ -55,6 +56,11 @@ public class AdminEntityRepository implements AdminRepository {
     @Override
     public void deleteAdmin(Integer id) {
         crudAdmin.deleteById(id);
+    }
+
+    @Override
+    public List<UsuarioExternoDTO> getAllUsers() {
+        return List.of();
     }
 
 }
