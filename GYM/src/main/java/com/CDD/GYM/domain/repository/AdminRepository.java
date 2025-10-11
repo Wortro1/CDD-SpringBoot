@@ -14,6 +14,9 @@ public interface AdminRepository {
     // Listar Todos los Administradores
     List<AdminDTO> lookAllAdmin();
 
+    // Ver Admiinistrador Por ID
+    AdminDTO getAdminById(Integer id);
+
     // Actualizar Administrador Existente
     AdminDTO updateAdmin(Integer id, AdminDTO adminDTO);
 

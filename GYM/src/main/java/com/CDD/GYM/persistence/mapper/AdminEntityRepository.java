@@ -44,6 +44,17 @@ public class AdminEntityRepository implements AdminRepository {
     }
 
     @Override
+    public AdminDTO getAdminById(Integer id) {
+
+        return crudAdmin.findById(id)
+                // 2. Si el Optional contiene un resultado (.map), usa el mapper para convertir
+                //    la Entity al DTO.
+                .map(entity -> adminMapper.toAdminDTO(entity))
+                // 3. Si no se encuentra el usuario (Optional está vacío), retorna null.
+                .orElse(null);
+    }
+
+    @Override
     public AdminDTO updateAdmin(Integer id, AdminDTO adminDTO) {
         if (!crudAdmin.existsById(id)) {
             return null;

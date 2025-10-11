@@ -27,6 +27,18 @@ public class AdminService {
         return adminRepository.lookAllAdmin();
     }
 
+    // Obtener Administrador por ID
+    public AdminDTO findAdminById(Integer id) {
+        AdminDTO adminDTO = adminRepository.getAdminById(id);
+
+        // 2. Lógica de Negocio: Si el usuario es null, lanzamos una excepción (error 404).
+        if (adminDTO == null) {
+            throw new RuntimeException("Usuario externo no encontrado con ID: " + id);
+        }
+
+        return adminDTO;
+    }
+
 
     // Actualizar Administrador
     public AdminDTO updateAdmin(int id, AdminDTO adminDTO) {return adminRepository.updateAdmin(id, adminDTO);

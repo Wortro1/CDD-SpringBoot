@@ -42,6 +42,16 @@ public class AdminController {
         return adminService.updateAdmin(id, adminDTO);
     }
 
+    // GET http://localhost:8080/gym/api/administrador/{id}
+    @GetMapping("/{id}")
+    public ResponseEntity<AdminDTO> getAdminById(@PathVariable Integer id) {
+
+        AdminDTO adminDTO = adminService.findAdminById(id);
+
+        // Retorna 200 OK con el DTO (el manejo del error 404 está en el servicio)
+        return new ResponseEntity<>(adminDTO, HttpStatus.OK);
+    }
+
     //Endpoint para consultar todos los usuarios del sistema.
     // URI: GET /gym/api/administrador/usuarios/todos
 
