@@ -50,11 +50,15 @@ public class AdminService {
     }
 
     //Obtiene la lista completa de todos los usuarios del sistema
-
     public List<UsuarioExternoDTO> findAllUsers() {
 
         // Llama al repositorio para obtener la lista de DTOs mapeados.
         return adminRepository.getAllUsers();
+    }
+
+    // Crear un nuevo usuario externo desde el Admin
+    public UsuarioExternoDTO createUsuarioExterno(UsuarioExternoDTO usuarioExternoDTO) {
+        return adminRepository.createUsuarioExterno(usuarioExternoDTO);
     }
 }
 
