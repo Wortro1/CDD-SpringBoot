@@ -8,3 +8,6 @@ target/
 shelf/
 .idea/workspace.xml
 mavenHomeManager.xml
+
+.env
+Dockerfile

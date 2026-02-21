@@ -8,7 +8,6 @@ public record UsuarioExternoDTO(
         String apellido,
         String telefono,
         String tipoDeDoc,
-        String numberCc,
         LocalDate fechaDeNacimiento,
         boolean haciendoMusculacion,
         boolean esDeportistaActivo
