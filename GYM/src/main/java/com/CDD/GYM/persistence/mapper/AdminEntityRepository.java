@@ -5,6 +5,7 @@ import com.CDD.GYM.domain.dto.UsuarioExternoDTO;
 import com.CDD.GYM.domain.repository.AdminRepository;
 import com.CDD.GYM.persistence.crud.CrudAdmin;
 import com.CDD.GYM.persistence.crud.CrudTaskType;
+import com.CDD.GYM.persistence.crud.CrudUsuarioExterno;
 import com.CDD.GYM.persistence.entity.AdminEntity;
 import com.CDD.GYM.persistence.entity.TaskTypeEntity;
 import org.springframework.stereotype.Repository;
@@ -16,12 +17,16 @@ public class AdminEntityRepository implements AdminRepository {
 
     private final CrudAdmin crudAdmin;
     private final CrudTaskType crudTaskType;
+    private final CrudUsuarioExterno crudUsuarioExterno;
     private final AdminMapper adminMapper;
+    private final UsuarioExternoMapper usuarioExternoMapper;
 
-    public AdminEntityRepository(CrudAdmin crudAdmin, CrudTaskType crudTaskType, AdminMapper adminMapper) {
+    public AdminEntityRepository(CrudAdmin crudAdmin, CrudTaskType crudTaskType, CrudUsuarioExterno crudUsuarioExterno, AdminMapper adminMapper, UsuarioExternoMapper usuarioExternoMapper) {
         this.crudAdmin = crudAdmin;
         this.crudTaskType = crudTaskType;
+        this.crudUsuarioExterno = crudUsuarioExterno;
         this.adminMapper = adminMapper;
+        this.usuarioExternoMapper = usuarioExternoMapper;
     }
 
     @Override
@@ -71,7 +76,7 @@ public class AdminEntityRepository implements AdminRepository {
 
     @Override
     public List<UsuarioExternoDTO> getAllUsers() {
-        return List.of();
+        return usuarioExternoMapper.toUsuarioExternoDTOs(crudUsuarioExterno.findAll());
     }
 
 }
