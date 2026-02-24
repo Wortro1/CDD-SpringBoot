@@ -64,6 +64,19 @@ public class AdminController {
         // Devuelve la respuesta 200 OK con la lista de DTOs.
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
+
+    // Endpoint para crear un nuevo usuario externo desde el Admin
+    // URI: POST /gym/api/administrador/usuarios/crear
+    @PostMapping("/usuarios/crear")
+    public ResponseEntity<UsuarioExternoDTO> createUsuarioExterno(@RequestBody UsuarioExternoDTO usuarioExternoDTO) {
+
+        // Llama al metodo de servicio
+        UsuarioExternoDTO usuarioCreado = adminService.createUsuarioExterno(usuarioExternoDTO);
+
+        // Devuelve la respuesta 201 Created con el nuevo usuario.
+        return new ResponseEntity<>(usuarioCreado, HttpStatus.CREATED);
+    }
+
     //DELETE http://localhost:8080/gym/api/administrador/{id}
     @DeleteMapping("/{id}")
     public void deleteAdmin(@PathVariable int id) {
