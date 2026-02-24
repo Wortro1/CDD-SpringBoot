@@ -25,4 +25,7 @@ public interface AdminRepository {
 
     List<UsuarioExternoDTO> getAllUsers();
 
+    // Crear un nuevo usuario externo desde el Admin
+    UsuarioExternoDTO createUsuarioExterno(UsuarioExternoDTO usuarioExternoDTO);
+
 }

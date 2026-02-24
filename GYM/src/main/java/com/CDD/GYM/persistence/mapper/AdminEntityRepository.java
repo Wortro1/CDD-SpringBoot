@@ -8,6 +8,7 @@ import com.CDD.GYM.persistence.crud.CrudTaskType;
 import com.CDD.GYM.persistence.crud.CrudUsuarioExterno;
 import com.CDD.GYM.persistence.entity.AdminEntity;
 import com.CDD.GYM.persistence.entity.TaskTypeEntity;
+import com.CDD.GYM.persistence.entity.UsuarioExternoEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -77,6 +78,12 @@ public class AdminEntityRepository implements AdminRepository {
     @Override
     public List<UsuarioExternoDTO> getAllUsers() {
         return usuarioExternoMapper.toUsuarioExternoDTOs(crudUsuarioExterno.findAll());
+    }
+
+    @Override
+    public UsuarioExternoDTO createUsuarioExterno(UsuarioExternoDTO usuarioExternoDTO) {
+        UsuarioExternoEntity entity = usuarioExternoMapper.toUsuarioExternoEntity(usuarioExternoDTO);
+        return usuarioExternoMapper.toUsuarioExternoDTO(crudUsuarioExterno.save(entity));
     }
 
 }
